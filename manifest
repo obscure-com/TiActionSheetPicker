@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+description: Module wrapper for ActionSheetPicker by Tim Cinel
+author: Paul Mietz Egli
+license: Apache 2.0
+copyright: 2013 Paul Mietz Egli
+
+
+# these should not be edited
+name: TiActionSheetPicker
+moduleid: com.obscure.tiactionsheetpicker
+guid: 6cd1a6cf-d66f-463e-aa04-4e3d94491ad4
+platform: iphone
+minsdk: 3.0.2.GA
