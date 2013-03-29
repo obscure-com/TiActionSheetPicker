@@ -42,4 +42,4 @@ picker.show();
 
 2013-03-29
 
-Added support for 
+Added support for date/time picker.
