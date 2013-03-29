@@ -25,6 +25,19 @@ picker.addEventListener('change', function(e) {
 picker.show();
 ```
 
+Similarly, you can create an action sheet for selecting from a list of strings:
+```javascript
+var rows = ['aardvark', 'bandicoot', 'cougar', 'dugong', 'yak', 'zebra' ];
+var picker = TiActionSheetPicker.createStringPickerSheet({
+  title: "Pick an Animal",
+  initialSelection: 4,
+  rows: rows
+});
+picker.addEventListener('change', function(e) {
+  label.text = rows[e.selectedIndex];
+})
+picker.show();
+```
 
 ## Requirements
 
@@ -42,4 +55,4 @@ picker.show();
 
 2013-03-29
 
-Added support for date/time picker.
+Added support for date/time picker and string picker
