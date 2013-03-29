@@ -1,2 +1,5 @@
 .*
 build
+*.xcodeproj/xcuserdata
+*.xcodeproj/project.xcworkspace
+*.zip
