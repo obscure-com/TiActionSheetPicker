@@ -26,6 +26,8 @@
 		24DD6CFA1134B3F500162E58 /* ComObscureTiactionsheetpickerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ComObscureTiactionsheetpickerModule.m */; };
 		AA747D9F0F9514B9006C5449 /* ComObscureTiactionsheetpicker_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ComObscureTiactionsheetpicker_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA4876491706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA4876471706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.h */; };
+		DA48764A1706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4876481706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.m */; };
 		DA80A63117061B7F00151EE7 /* ActionSheetPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DA80A60F17061B7F00151EE7 /* ActionSheetPicker.h */; };
 		DA80A63217061B7F00151EE7 /* AbstractActionSheetPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DA80A61317061B7F00151EE7 /* AbstractActionSheetPicker.h */; };
 		DA80A63317061B7F00151EE7 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80A61417061B7F00151EE7 /* AbstractActionSheetPicker.m */; };
@@ -58,6 +60,8 @@
 		AA747D9E0F9514B9006C5449 /* ComObscureTiactionsheetpicker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComObscureTiactionsheetpicker_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libComObscureTiactionsheetpicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libComObscureTiactionsheetpicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA4876471706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComObscureTiactionsheetpickerStringPickerSheetProxy.h; path = Classes/ComObscureTiactionsheetpickerStringPickerSheetProxy.h; sourceTree = "<group>"; };
+		DA4876481706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComObscureTiactionsheetpickerStringPickerSheetProxy.m; path = Classes/ComObscureTiactionsheetpickerStringPickerSheetProxy.m; sourceTree = "<group>"; };
 		DA80A60F17061B7F00151EE7 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
 		DA80A61017061B7F00151EE7 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		DA80A61117061B7F00151EE7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				24DD6CF81134B3F500162E58 /* ComObscureTiactionsheetpickerModule.m */,
 				DA80A64B170627F800151EE7 /* ComObscureTiactionsheetpickerDatePickerSheetProxy.h */,
 				DA80A64C170627F800151EE7 /* ComObscureTiactionsheetpickerDatePickerSheetProxy.m */,
+				DA4876471706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.h */,
+				DA4876481706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 				DA80A63817061B7F00151EE7 /* ActionSheetStringPicker.h in Headers */,
 				DA80A63A17061B7F00151EE7 /* DistancePickerView.h in Headers */,
 				DA80A64D170627F800151EE7 /* ComObscureTiactionsheetpickerDatePickerSheetProxy.h in Headers */,
+				DA4876491706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +273,7 @@
 				DA80A63917061B7F00151EE7 /* ActionSheetStringPicker.m in Sources */,
 				DA80A63B17061B7F00151EE7 /* DistancePickerView.m in Sources */,
 				DA80A64E170627F800151EE7 /* ComObscureTiactionsheetpickerDatePickerSheetProxy.m in Sources */,
+				DA48764A1706599300E21C0A /* ComObscureTiactionsheetpickerStringPickerSheetProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

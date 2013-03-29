@@ -26,4 +26,23 @@ b1.addEventListener('click', function() {
 });
 win.add(b1);
 
+var b2 = Ti.UI.createButton({
+  top: 10,
+  title: 'pick an animal',
+});
+b2.addEventListener('click', function() {
+  var rows = ['aardvark', 'bandicoot', 'cougar', 'dugong', 'emu', 'finch', 'gorilla', 'hedgehog', 'iguana', 'jackal', 'koala', 'llama', 'mastodon', 'newt', 'okapi', 'porcupine', 'quail', 'rhinoceros', 'sheep', 'tapir', 'urchin', 'vicuna', 'wallaby', 'xantus', 'yak', 'zebra' ];
+  var picker = TiActionSheetPicker.createStringPickerSheet({
+    title: "Pick an Animal",
+    initialSelection: 5,
+    rows: rows
+  });
+  picker.addEventListener('change', function(e) {
+    label.text = rows[e.selectedIndex];
+  })
+  picker.show();
+});
+win.add(b2);
+
+
 win.open();
