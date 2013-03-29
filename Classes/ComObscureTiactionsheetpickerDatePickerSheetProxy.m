@@ -12,13 +12,13 @@
 #define kTitleKey @"title"
 #define kPickerModeKey @"mode"
 #define kHideCancelKey @"hideCancel"
+#define kInitialDateKey @"initialDate"
 
 #define kDateSelectedEventName @"change"
 #define kDateSelectedEventDateKey @"selectedDate"
 
 @interface ComObscureTiactionsheetpickerDatePickerSheetProxy ()
 @property (nonatomic, strong) ActionSheetDatePicker * actionSheetPicker;
-@property (nonatomic, strong) NSDate * selectedDate;
 @end
 
 @implementation ComObscureTiactionsheetpickerDatePickerSheetProxy
@@ -30,12 +30,11 @@
     
     NSString * title = [self valueForKey:kTitleKey];
     NSNumber * mode = [self valueForKey:kPickerModeKey];
-    
-    NSDate * dt = self.selectedDate != nil ? self.selectedDate : [NSDate date];
+    NSDate * dt = [self valueForKey:kInitialDateKey];
     
     self.actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:title ? title : @""
                                                            datePickerMode:mode ? [mode integerValue] : UIDatePickerModeDateAndTime
-                                                             selectedDate:dt
+                                                             selectedDate:dt ? dt : [NSDate date]
                                                                    target:self
                                                                    action:@selector(dateWasSelected:element:)
                                                                    origin:[[TiApp app] topMostView]];

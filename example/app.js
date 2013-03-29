@@ -16,6 +16,7 @@ b1.addEventListener('click', function() {
   var picker = TiActionSheetPicker.createDatePickerSheet({
     title: "Pick a Date",
     mode: Ti.UI.PICKER_TYPE_DATE,
+    initialDate: new Date(2013, 4, 14),
     hideCancel: true
   });
   picker.addEventListener('change', function(e) {
@@ -24,6 +25,5 @@ b1.addEventListener('click', function() {
   picker.show();
 });
 win.add(b1);
-
 
 win.open();
