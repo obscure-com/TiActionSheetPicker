@@ -26,6 +26,7 @@
 - (void)show:(id)args {
     NSDictionary * showArgs;
     ENSURE_ARG_OR_NIL_AT_INDEX(showArgs, args, 0, NSDictionary);
+    [self rememberSelf];
     ENSURE_UI_THREAD_1_ARG(args)
     
     NSString * title = [self valueForKey:kTitleKey];
@@ -39,7 +40,10 @@
                                                                    action:@selector(dateWasSelected:element:)
                                                                    origin:[[TiApp app] topMostView]];
     
-    self.actionSheetPicker.hideCancel = [[self valueForKey:kHideCancelKey] boolValue];
+    // cannot provide a cancel button unless we get notified when it is clicked so we
+    // can call [self release].
+    self.actionSheetPicker.hideCancel = YES;
+    // self.actionSheetPicker.hideCancel = [[self valueForKey:kHideCancelKey] boolValue];
     
     // TODO custom buttons?
     /*
@@ -47,16 +51,20 @@
     [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSDayCalendarUnit amount:-1]];
      */
     
+    [self retain];
     [self.actionSheetPicker showActionSheetPicker];
 }
 
 - (void)dateWasSelected:(NSDate *)selectedDate element:(id)element {
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                           selectedDate ? selectedDate : [NSNull null], kDateSelectedEventDateKey,
+                           nil];
     TiThreadPerformOnMainThread(^{
-        NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                               selectedDate, kDateSelectedEventDateKey,
-                               nil];
         [self fireEvent:kDateSelectedEventName withObject:dict];
-    }, NO);
+    }, YES);
+    
+    [self forgetSelf];
+    [self release];
 }
 
 @end

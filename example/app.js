@@ -13,16 +13,16 @@ var b1 = Ti.UI.createButton({
   title: 'pick a date'
 });
 b1.addEventListener('click', function() {
-  var picker = TiActionSheetPicker.createDatePickerSheet({
+  var datePicker = TiActionSheetPicker.createDatePickerSheet({
     title: "Pick a Date",
     mode: Ti.UI.PICKER_TYPE_DATE,
     initialDate: new Date(2013, 4, 14),
     hideCancel: true
   });
-  picker.addEventListener('change', function(e) {
+  datePicker.addEventListener('change', function(e) {
     label.text = String.formatDate(e.selectedDate, 'medium');
   })
-  picker.show();
+  datePicker.show();
 });
 win.add(b1);
 
@@ -32,15 +32,18 @@ var b2 = Ti.UI.createButton({
 });
 b2.addEventListener('click', function() {
   var rows = ['aardvark', 'bandicoot', 'cougar', 'dugong', 'emu', 'finch', 'gorilla', 'hedgehog', 'iguana', 'jackal', 'koala', 'llama', 'mastodon', 'newt', 'okapi', 'porcupine', 'quail', 'rhinoceros', 'sheep', 'tapir', 'urchin', 'vicuna', 'wallaby', 'xantus', 'yak', 'zebra' ];
-  var picker = TiActionSheetPicker.createStringPickerSheet({
+  var stringPicker = TiActionSheetPicker.createStringPickerSheet({
     title: "Pick an Animal",
     initialSelection: 5,
     rows: rows
   });
-  picker.addEventListener('change', function(e) {
+  stringPicker.addEventListener('change', function(e) {
     label.text = rows[e.selectedIndex];
-  })
-  picker.show();
+  });
+  stringPicker.addEventListener('cancel', function() {
+    label.text = 'cancelled';
+  });
+  stringPicker.show();
 });
 win.add(b2);
 

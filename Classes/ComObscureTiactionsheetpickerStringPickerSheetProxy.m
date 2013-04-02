@@ -15,8 +15,9 @@
 #define kRowsKey @"rows"
 
 
-#define kDateSelectedEventName @"change"
+#define kStringSelectedEventName @"change"
 #define kStringSelectedEventIndexKey @"selectedIndex"
+#define kStringCancelledEventName @"cancel"
 
 @interface ComObscureTiactionsheetpickerStringPickerSheetProxy ()
 @property (nonatomic, strong) ActionSheetStringPicker * actionSheetPicker;
@@ -27,6 +28,7 @@
 - (void)show:(id)args {
     NSDictionary * showArgs;
     ENSURE_ARG_OR_NIL_AT_INDEX(showArgs, args, 0, NSDictionary);
+    [self rememberSelf];
     ENSURE_UI_THREAD_1_ARG(args)
     
     NSString * title = [self valueForKey:kTitleKey];
@@ -38,18 +40,29 @@
                                                            initialSelection:initialSelection ? [initialSelection integerValue] : 0
                                                                      target:self
                                                               successAction:@selector(stringWasSelected:element:)
-                                                               cancelAction:nil
+                                                               cancelAction:@selector(actionPickerCancelled:)
                                                                      origin:[[TiApp app] topMostView]];
+    [self retain];
     [self.actionSheetPicker showActionSheetPicker];
 }
 
 - (void)stringWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                           selectedIndex, kStringSelectedEventIndexKey,
+                           nil];
     TiThreadPerformOnMainThread(^{
-        NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                               selectedIndex, kStringSelectedEventIndexKey,
-                               nil];
-        [self fireEvent:kDateSelectedEventName withObject:dict];
+        [self fireEvent:kStringSelectedEventName withObject:dict];
+    }, YES);
+    [self forgetSelf];
+    [self release];
+}
+
+- (void)actionPickerCancelled:(id)sender {
+    TiThreadPerformOnMainThread(^{
+        [self fireEvent:kStringCancelledEventName];
     }, NO);
+    [self forgetSelf];
+    [self release];
 }
 
 @end
