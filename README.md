@@ -6,6 +6,13 @@ based on ActionSheetPicker by Tim Cinel (https://github.com/TimCinel/ActionSheet
 **TiActionSheetPicker** is an Appcelerator Titanium module which wraps ActionSheetPicker, the library for
 creating action sheets on iOS for choosing date/times and from a list of strings.
 
+## Building
+
+1. Clone this github repository.
+2. In the same directory as this README.md file, run `git submodule init`, then `git submodule update`.
+3. Open `titanium.xcconfig` and verify that the path to the Titanium SDK is correct for your system.
+4. Run `./build.py` to generate the module ZIP file.
+
 ## Using the Module
 
 If you have used [Ti.UI.OptionDialog](http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.UI.OptionDialog),
