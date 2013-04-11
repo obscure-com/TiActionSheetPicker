@@ -35,13 +35,23 @@
     NSNumber * initialSelection = [self valueForKey:kInitialSelectionKey];
     NSArray * rows = [self valueForKey:kRowsKey];
     
+    // show arguments
+    UIView * origin = nil;
+    TiViewProxy * originProxy = (TiViewProxy *) [showArgs valueForKey:@"origin"];
+    if (originProxy && originProxy.view) {
+        origin = originProxy.view;
+    }
+    else {
+        origin = [[TiApp app] topMostView];
+    }
+    
     self.actionSheetPicker = [[ActionSheetStringPicker alloc] initWithTitle:title ? title : @""
                                                                        rows:rows ? rows : [NSArray array]
                                                            initialSelection:initialSelection ? [initialSelection integerValue] : 0
                                                                      target:self
                                                               successAction:@selector(stringWasSelected:element:)
                                                                cancelAction:@selector(actionPickerCancelled:)
-                                                                     origin:[[TiApp app] topMostView]];
+                                                                     origin:origin];
     [self retain];
     [self.actionSheetPicker showActionSheetPicker];
 }

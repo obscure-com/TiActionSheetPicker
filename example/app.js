@@ -21,8 +21,8 @@ b1.addEventListener('click', function() {
   });
   datePicker.addEventListener('change', function(e) {
     label.text = String.formatDate(e.selectedDate, 'medium');
-  })
-  datePicker.show();
+  });
+  datePicker.show({ origin: b1});
 });
 win.add(b1);
 
@@ -43,7 +43,7 @@ b2.addEventListener('click', function() {
   stringPicker.addEventListener('cancel', function() {
     label.text = 'cancelled';
   });
-  stringPicker.show();
+  stringPicker.show({ origin: b2 });
 });
 win.add(b2);
 

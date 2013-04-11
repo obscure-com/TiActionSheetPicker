@@ -39,6 +39,25 @@ picker.addEventListener('change', function(e) {
 picker.show();
 ```
 
+The date picker and string picker are displayed as a popover view on the iPad and require
+an additional argument to the `show()` function to specify the origin of the popover:
+
+```javascript
+var button = Ti.UI.createButton({
+  title: 'Select Date'
+});
+button.addEventListener('click', function() {
+  var picker = TiActionSheetPicker.createDatePickerSheet({
+    mode: Ti.UI.PICKER_TYPE_DATE,
+  });
+  picker.show({ origin: button });
+});
+```
+
+The above code will result in a date picker popover anchored to the button.  If the origin
+of the picker is not specified, the popover will not be shown.  The origin is ignored on
+the iPhone.
+
 ## Requirements
 
 * Titanium SDK 3.0.2 or later

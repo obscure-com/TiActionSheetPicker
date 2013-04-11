@@ -33,12 +33,22 @@
     NSNumber * mode = [self valueForKey:kPickerModeKey];
     NSDate * dt = [self valueForKey:kInitialDateKey];
     
+    // show arguments
+    UIView * origin = nil;
+    TiViewProxy * originProxy = (TiViewProxy *) [showArgs valueForKey:@"origin"];
+    if (originProxy && originProxy.view) {
+        origin = originProxy.view;
+    }
+    else {
+        origin = [[TiApp app] topMostView];
+    }
+    
     self.actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:title ? title : @""
                                                            datePickerMode:mode ? [mode integerValue] : UIDatePickerModeDateAndTime
                                                              selectedDate:dt ? dt : [NSDate date]
                                                                    target:self
                                                                    action:@selector(dateWasSelected:element:)
-                                                                   origin:[[TiApp app] topMostView]];
+                                                                   origin:origin];
     
     // cannot provide a cancel button unless we get notified when it is clicked so we
     // can call [self release].
