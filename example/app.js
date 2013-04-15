@@ -16,8 +16,9 @@ b1.addEventListener('click', function() {
   var datePicker = TiActionSheetPicker.createDatePickerSheet({
     title: "Pick a Date",
     mode: Ti.UI.PICKER_TYPE_DATE,
-    initialDate: new Date(2013, 4, 14),
-    hideCancel: true
+    // initialDate: new Date(2013, 4, 14),
+    hideCancel: false,
+    maxDate: new Date()
   });
   datePicker.addEventListener('change', function(e) {
     label.text = String.formatDate(e.selectedDate, 'medium');
@@ -38,7 +39,8 @@ b2.addEventListener('click', function() {
     rows: rows
   });
   stringPicker.addEventListener('change', function(e) {
-    label.text = rows[e.selectedIndex];
+    // label.text = rows[e.selectedIndex];
+    label.text = e.selectedIndex;
   });
   stringPicker.addEventListener('cancel', function() {
     label.text = 'cancelled';

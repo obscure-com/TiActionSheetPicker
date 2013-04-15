@@ -13,6 +13,9 @@
 #define kPickerModeKey @"mode"
 #define kHideCancelKey @"hideCancel"
 #define kInitialDateKey @"initialDate"
+#define kLocaleKey @"locale"
+#define kMinDateKey @"minDate"
+#define kMaxDateKey @"maxDate"
 
 #define kDateSelectedEventName @"change"
 #define kDateSelectedEventDateKey @"selectedDate"
@@ -60,6 +63,23 @@
     [self.actionSheetPicker addCustomButtonWithTitle:@"Today" value:[NSDate date]];
     [self.actionSheetPicker addCustomButtonWithTitle:@"Yesterday" value:[[NSDate date] TC_dateByAddingCalendarUnits:NSDayCalendarUnit amount:-1]];
      */
+    
+    // set additional properties
+    
+    // locale
+    NSString * localeStr = [self valueForKey:kLocaleKey];
+    if (localeStr) {
+        NSString *identifier = [NSLocale canonicalLocaleIdentifierFromString:localeStr];
+        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:identifier];
+        self.actionSheetPicker.locale = locale;
+    }
+    else {
+        self.actionSheetPicker.locale = nil;
+    }
+    
+    // min and max date
+    self.actionSheetPicker.minimumDate = [self valueForKey:kMinDateKey];
+    self.actionSheetPicker.maximumDate = [self valueForKey:kMaxDateKey];
     
     [self retain];
     [self.actionSheetPicker showActionSheetPicker];
