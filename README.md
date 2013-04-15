@@ -24,6 +24,7 @@ var picker = TiActionSheetPicker.createDatePickerSheet({
   title: "Pick a Date",
   mode: Ti.UI.PICKER_TYPE_DATE,
   initialDate: new Date(2013, 4, 14),
+  minDate: new Date(2012, 0, 1)
 });
 picker.addEventListener('change', function(e) {
   // e.selectedDate contains the date object that was chosen
@@ -78,6 +79,10 @@ the iPhone.
 ## Development Status 
 
 **1.0**
+
+2013-04-15
+
+Added minDate, maxDate, and locale properties to date picker
 
 2013-03-29
 
