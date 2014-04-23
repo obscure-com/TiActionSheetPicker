@@ -55,8 +55,8 @@
     
     // cannot provide a cancel button unless we get notified when it is clicked so we
     // can call [self release].
-    self.actionSheetPicker.hideCancel = YES;
-    // self.actionSheetPicker.hideCancel = [[self valueForKey:kHideCancelKey] boolValue];
+    // self.actionSheetPicker.hideCancel = YES;
+    self.actionSheetPicker.hideCancel = [[self valueForKey:kHideCancelKey] boolValue];
     
     // TODO custom buttons?
     /*
@@ -93,6 +93,11 @@
         [self fireEvent:kDateSelectedEventName withObject:dict];
     }, YES);
     
+    [self forgetSelf];
+    [self release];
+}
+
+- (void)actionPickerCancelled:(id)sender {
     [self forgetSelf];
     [self release];
 }
