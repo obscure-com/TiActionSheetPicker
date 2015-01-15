@@ -1,3 +1,3 @@
-[submodule "vendor/ActionSheetPicker"]
-	path = vendor/ActionSheetPicker
-	url = https://github.com/pegli/ActionSheetPicker.git
+[submodule "iphone/vendor/ActionSheetPicker"]
+	path = iphone/vendor/ActionSheetPicker
+	url = https://github.com/skywinder/ActionSheetPicker-3.0.git
